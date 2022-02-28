@@ -11,6 +11,7 @@ import { UserGithubService } from '../shared/user-github.service';
 export class LoginComponent implements OnInit {
 
   githubAccount!: Object;
+  name: string = 'Yasmin Alves';
   username: string = 'yasminalvx';
   url_image: string = `https://github.com/${this.username}.png`
   city: string = 'João Pessoa - PB';
@@ -51,10 +52,9 @@ export class LoginComponent implements OnInit {
 
   updateGithubAccount(user: any) {
     console.log(user);
+    this.name = user.name;
     this.city = user.location;
     this.username = user.login;
     this.url_image = `https://github.com/${this.username}.png`;
   }
-
-
 }
