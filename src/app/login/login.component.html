@@ -1,0 +1,17 @@
+<main class="container">
+  <div class="box1">
+    <h1>Boas vindas! Vamos conversar?</h1>
+    <div class="form">
+      <form action="username">
+        <input type="text" class="input" value="yasminalvx" name="username" id="username" placeholder="username" #username (keyup)="onChange(username.value)">
+        <!-- <input type="submit" name="login" id="login" value="Entrar"> -->
+      </form>
+      <button name="login" class="input" id="login" (click)="onClick()">Entrar</button>
+    </div>
+  </div>
+  <div class="box2">
+    <img src="{{url_image}}" alt="">
+    <p class="box-name"> {{ username.value }} </p>
+    <p class="city"> {{ city }} </p>
+  </div>
+</main>
