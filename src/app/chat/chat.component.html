@@ -1,0 +1,15 @@
+<main class="container">
+  <div class="header">
+    <p>Chat</p>
+    <button (click)="onLogout()" routerLinkActive="active" routerLink="/login">Logout</button>
+  </div>
+  <div class="box">
+    <div class="message-list" *ngFor="let message of messageList">
+      <app-message name="{{ getName(message) }}" messageDate="{{ getMessageDate(message) }}" message="{{ getMessage(message) }}"
+        url_img="{{ getUrlImg(message) }}"></app-message>
+    </div>
+    <div class="send-message">
+      <app-send-image></app-send-image>
+    </div>
+  </div>
+</main>

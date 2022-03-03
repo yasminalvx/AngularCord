@@ -1,0 +1,46 @@
+.container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.input {
+  height: 60px;
+  min-width: calc(100% - 80px);
+  background-color: #181F25;
+  border: none;
+  border-radius: 5px;
+}
+
+.input {
+  padding-left: 16px;
+  color: #fff;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 14px;
+}
+
+.button {
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+}
+
+button {
+  color: #fff;
+  height: 50px;
+  width: 50px;
+  border: none;
+  background-color: #181F25;
+  border-radius: 50%;
+}
+
+button:hover {
+  cursor: pointer;
+  color: #05E8F6;
+  border: 1px solid #05E8F6;
+}
+
+i {
+  font-size: 18px;
+}
+

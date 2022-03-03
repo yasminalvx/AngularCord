@@ -1,0 +1,26 @@
+.user, .message {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  color: #fff;
+  height: 30px;
+}
+
+.user {
+  display: flex;
+  align-items: center;
+}
+
+img {
+  width: 22px;
+  height: 22px;
+  margin-right: 10px;
+  border-radius: 50%;
+}
+
+.message {
+  padding-left: 32px;
+  font-size: 16px;
+  display: flex;
+  align-items: center;
+}

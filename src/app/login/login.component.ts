@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { EMPTY, Observable } from 'rxjs';
 import { catchError, take, switchMap, delay } from 'rxjs/operators';
+import { LocalStorageService } from '../shared/local-storage.service';
 import { UserGithubService } from '../shared/user-github.service';
 
 @Component({
@@ -11,24 +13,28 @@ import { UserGithubService } from '../shared/user-github.service';
 export class LoginComponent implements OnInit {
 
   githubAccount!: Object;
-  name: string = 'Yasmin Alves';
-  username: string = 'yasminalvx';
-  url_image: string = `https://github.com/${this.username}.png`
-  city: string = 'João Pessoa - PB';
+  name: string = '';
+  username: string = '';
+  url_image: string = `https://github.com/user.png`
+  city: string = '';
 
-  constructor(private user: UserGithubService) { }
+  constructor(
+    private user: UserGithubService,
+    private localStorage: LocalStorageService
+    ) { }
 
   ngOnInit(): void {
 
   }
 
+  onClick() {
+    this.localStorage.clear();
+    this.localStorage.set('user_activated', this.githubAccount);
+  }
+
   onChange(username: any) {
     this.username = username;
     this.updateUser();
-  }
-
-  onClick() {
-    // this.updateUser();
   }
 
   updateUser() {
@@ -51,7 +57,7 @@ export class LoginComponent implements OnInit {
   }
 
   updateGithubAccount(user: any) {
-    console.log(user);
+    // console.log(user);
     this.name = user.name;
     this.city = user.location;
     this.username = user.login;

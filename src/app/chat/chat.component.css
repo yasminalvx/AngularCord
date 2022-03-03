@@ -1,0 +1,127 @@
+.container {
+  background-color: #181F25;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+  border-radius: 5px;
+  width: 90vw;
+  max-width: 95%;
+  height: 90vh;
+  max-height: 95vh;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.box {
+  background-color: #212931;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+  border-radius: 5px;
+  padding: 16px;
+  margin-top: 30px;
+  width: calc(100% - 72px);
+  height: calc(100% - 142px);
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+.send-message {
+  width: calc(100% - 32px);
+  height: 40px;
+  position: absolute;
+  bottom: 38px;
+}
+
+.header {
+  width: calc(100% - 72px);
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.header p {
+  color: #fff;
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 400;
+  font-size: 32px;
+}
+
+.header button {
+  background-color: #212931;
+  color: #fff;
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 400;
+  font-size: 28px;
+  padding: 12px;
+  border: none;
+  border-radius: 5px;
+}
+
+.header button:hover {
+  background-color: #05E8F6;
+  border: 2px solid #05E8F6;
+  box-shadow: 0px 0px 8px #05E8F6;
+}
+
+@media screen and (max-width: 1023.9px) {
+  .container {
+    min-width: 600px;
+    min-height: 800px;
+  }
+}
+
+@media screen and (max-width: 779px) {
+  .container {
+    min-width: 500px;
+    min-height: 500px;
+    width: auto;
+  }
+
+  .box {
+    margin-top: 20px;
+    width: calc(100% - 42px);
+    height: calc(100% - 112px);
+  }
+
+  .header {
+    width: calc(100% - 32px);
+  }
+
+  .header p {
+    font-weight: 400;
+    font-size: 26px;
+  }
+
+  .header button {
+    font-size: 24px;
+    padding: 12px;
+  }
+}
+
+@media screen and (max-width: 578px) {
+  .container {
+    min-width: 300px;
+    min-height: 600px;
+  }
+
+  .box {
+    margin-top: 10px;
+    width: calc(100% - 32px);
+    height: calc(100% - 92px);
+  }
+
+  .header {
+    width: calc(100% - 12px);
+  }
+
+  .header p {
+    font-size: 22px;
+  }
+
+  .header button {
+    font-size: 20px;
+    padding: 5px 10px;
+  }
+}

@@ -3,10 +3,10 @@
     <h1>Boas vindas! Vamos conversar?</h1>
     <div class="form">
       <form action="username">
-        <input type="text" class="input" value="yasminalvx" name="username" id="username" placeholder="username" #username (keyup)="onChange(username.value)">
+        <input type="text" class="input" name="username" id="username" placeholder="username" #username (keyup)="onChange(username.value)">
         <!-- <input type="submit" name="login" id="login" value="Entrar"> -->
       </form>
-      <button name="login" class="input" id="login" (click)="onClick()">Entrar</button>
+      <button name="login" class="input" id="login" routerLinkActive="active" routerLink="/chat" (click)="onClick()">Entrar</button>
     </div>
   </div>
   <div class="box2">
