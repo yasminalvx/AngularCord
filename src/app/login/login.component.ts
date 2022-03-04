@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { EMPTY, Observable } from 'rxjs';
 import { catchError, take, switchMap, delay } from 'rxjs/operators';
+import { AuthService } from '../shared/auth.service';
 import { LocalStorageService } from '../shared/local-storage.service';
 import { UserGithubService } from '../shared/user-github.service';
 
@@ -20,16 +21,21 @@ export class LoginComponent implements OnInit {
 
   constructor(
     private user: UserGithubService,
-    private localStorage: LocalStorageService
+    private localStorage: LocalStorageService,
+    private auth: AuthService
     ) { }
 
   ngOnInit(): void {
-
+    this.localStorage.clear();
   }
 
   onClick() {
-    this.localStorage.clear();
-    this.localStorage.set('user_activated', this.githubAccount);
+    if (this.updateUser()) {
+      this.auth.userExists = true;
+      // console.log(`click: ${this.auth.userExists}`);
+      this.localStorage.clear();
+      this.localStorage.set('user_activated', this.githubAccount);
+    }
   }
 
   onChange(username: any) {
@@ -38,6 +44,7 @@ export class LoginComponent implements OnInit {
   }
 
   updateUser() {
+    let userExists = true;
     this.user.loadByUsername(this.username)
     .subscribe(
       dados => {
@@ -47,6 +54,7 @@ export class LoginComponent implements OnInit {
         }
       },
       error => {
+        userExists = false;
         console.log('Requisição inválida!');
         this.city = 'Inválido';
         this.username = 'Inexistente';
@@ -54,10 +62,10 @@ export class LoginComponent implements OnInit {
       },
       () => console.log('Requisição completa!')
     );
+      return userExists;
   }
 
   updateGithubAccount(user: any) {
-    // console.log(user);
     this.name = user.name;
     this.city = user.location;
     this.username = user.login;

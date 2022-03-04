@@ -23,6 +23,16 @@ export class SupabaseService {
     return this.supabase
       .from('messages')
       .select('*')
-      .order('id', { ascending: false });
+      .order('id', { ascending: true });
   }
+
+  // realTimeMessage() {
+  //   return this.supabase
+  //   .from('messages')
+  //   .on('INSERT', (responseLive) => {
+  //     console.log("mensagem nova")
+  //     console.log(responseLive);
+  //   })
+  //   .subscribe();;
+  // }
 }

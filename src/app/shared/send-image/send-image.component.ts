@@ -21,13 +21,13 @@ export class SendImageComponent implements OnInit {
 
   ngOnInit(): void {
     this.githubAccount = this.localStorage.get('user_activated');
-    console.log(this.githubAccount);
+    // console.log(this.githubAccount);
   }
 
   onClick(message: any) {
     let date = new Date();
     let messageData = `${date.getDate()}/${date.getMonth()+1}/${date.getFullYear()} ${date.getHours()}:${date.getMinutes()}`;
-    console.log(messageData);
+    // console.log(messageData);
 
     let message_obj = new Message(
       this.githubAccount.name,
@@ -39,8 +39,6 @@ export class SendImageComponent implements OnInit {
     )
     if(message != '') {
       this.supabase.addMessage(message_obj);
-      console.log(message_obj);
     }
   }
-
 }

@@ -11,6 +11,7 @@ import { UserGithubService } from '../shared/user-github.service';
 export class ChatComponent implements OnInit {
 
   messageList: Array<Object> = [];
+  githubAccount!: any;
 
   constructor(
     private localStorage: LocalStorageService,
@@ -19,11 +20,30 @@ export class ChatComponent implements OnInit {
   ngOnInit(): void {
     this.supabase.getMessages()
     .then(({ data }) => {
-      console.log(data);
+      // console.log(data);
       this.updateMessageList(data);
     });
 
+    // this.supabase.realTimeMessage();
 
+    // this.realTimeMessage();
+  }
+
+  // realTimeMessage() {
+  //   this.supabase.realTimeMessage()
+  //   .from('messages')
+  //   .on('INSERT', (responseLive) => {
+  //     console.log("mensagem nova")
+  //     // console.log(responseLive);
+  //     this.addMessage(responseLive);
+
+
+  //   })
+  //   .subscribe();
+  // }
+
+  addMessage(message: any) {
+    console.log(message.name);
   }
 
   onLogout() {
@@ -52,4 +72,7 @@ export class ChatComponent implements OnInit {
     return message.urlImg;
   }
 
+  getUsername(message: any) {
+    return message.username;
+  }
 }
