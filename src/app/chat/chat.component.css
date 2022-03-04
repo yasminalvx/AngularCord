@@ -68,7 +68,7 @@
 
 .overflow {
   max-height: calc(100% - 82px);
-  overflow: scroll;
+  overflow-y: scroll;
 }
 
 @media screen and (max-width: 1023.9px) {
